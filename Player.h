@@ -3,14 +3,13 @@
 #include "Card.h"
 class Player {
 private:
-	string name;
-	int num_of_cards;
-	//vector of cards
-	//private members
+	// name;
+	// num_of_cards;
+	// container of cards
+	// more private members
 
 public:
-	//public members
-	bool play(Card&);
+
 };
 #endif
 

@@ -1,16 +1,17 @@
 #include "Card.h"
 //#define RANDOM
-#define WINDOWS
-#ifdef WINDOWS
-#include <windows.h>
-#endif
-int Card::counter = 0;
+//#define WINDOWS
+//#ifdef WINDOWS
+//#include <windows.h>
+//#endif
 using namespace std;
 Card Card::generate_card() {
 #ifdef RANDOM
-	return Card(color(rand() % 4 + 1), sign(rand() % 13 + 1));
+	return Card(static_cast<color>(rand() % 4 + 1), static_cast<sign>(rand() % 13 + 1));
 #else
-	return Card(color(counter % 2 + 1), sign(counter % 5 + 8));
+	static int counter = 0;
+	++counter;
+	return Card(static_cast<color>(counter % 2 + 1), static_cast<sign>(counter % 5 + 8));
 #endif
 
 }
