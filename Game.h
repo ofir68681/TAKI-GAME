@@ -6,7 +6,7 @@
 
 class Game {
 private:
-	//private members and functions
+	//private members and functions 
 	std::vector <Player*> players;
 	Card current;
 public:

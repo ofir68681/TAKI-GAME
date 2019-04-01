@@ -8,7 +8,7 @@ private:
 	// container of cards
 	// more private members
 
-public:
+public: 
 	bool play(Card& current);
 	//the function get the current card on the table, return true if played, false if took a card from the deck
 	

@@ -3,6 +3,6 @@
 bool Player::play(Card& current){
 	return true;
 }
-int Player::numberOfCards(){
+int Player::numberOfCards(){ 
 	return 0;
 }
