@@ -2,14 +2,14 @@
 
 
 
-Player::Player(string name, int num_of_cards) : name{clr}, num_of_cards{num_of_cards}{
+Player::Player(string name, int num_of_cards){
 	for(int i=0; i<this.num_of_cards; i++){
 		Card::Card* c = new Card::Card(Card::generate_card());
 		this.cards.push_back(c); 
 	}
 }
 
-Player::Player():name{"ugly"}, num_of_cards{8}{
+Player::Player(){
 	for(int i=0; i<this.num_of_cards; i++){
 		Card::Card* c = new Card::Card(Card::generate_card());
 		this.cards.push_back(c); 
@@ -26,8 +26,17 @@ Player::Player(Player p){
 
 
 bool Player::play(Card& current){
+	cout << "your cards: ";
+	for(int i=0; i<cards.size(); i++){
+		cout << "(" << i << ")" << (*cards[i])
+	}
+	
+	
+	
+	
 	return true;
 }
+
 int Player::numberOfCards(){ 
 	return 0;
 }

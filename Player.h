@@ -13,9 +13,9 @@ private:
 
 public: 
 
-	Player(string name, int num_of_cards); //default construtor and init list constructor	
+	Player(string name, int num_of_cards) : name{clr}, num_of_cards{num_of_cards}; //default construtor and init list constructor	
 	Player(Card c);// copy construtor
-	Player() : name{"ugly"} //construtor and init list constructor
+	Player() :name{"ugly"}, num_of_cards{8}; //construtor and init list constructor
 
 
 	bool play(Card& current);

@@ -97,11 +97,8 @@ void Game::start(){
 	for(int i=0; i<numberOfPlayers; i++)
 		free(this->players[i]);
 	
-	
-	
 	cout << "done";
-	 
-	
+	 	
 }
 
 
