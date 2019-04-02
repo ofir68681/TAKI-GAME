@@ -8,7 +8,7 @@ class Player {
 private:
 	 string name;
 	 int num_of_cards;
-	std::vector <Cards*> cards; // container of cards
+	std::vector <Card*> cards; // container of cards
 	// more private members
 	void takeCard(){};
 	void replaceCard(Card &current ,int indx){};
@@ -16,7 +16,7 @@ private:
 public: 
 
 	Player(string name, int num_of_cards) : name{clr}, num_of_cards{num_of_cards}; //default construtor and init list constructor	
-	Player(Player p);// copy construtor
+	Player(Player& p);// copy construtor
 	Player() :name{"ugly"}, num_of_cards{8}; //construtor and init list constructor
 
 
