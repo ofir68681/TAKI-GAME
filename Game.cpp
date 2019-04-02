@@ -14,18 +14,18 @@ void Game::start(){
 	cout << "How many players?" << endl;
 	int numberOfPlayers = 0;
 	cin >> numberOfPlayers;
-	while (numberOfPlayers < 2){
-		cout << "invaild. try again"<< endl;
-		cin >> numberOfPlayers;
+	if (numberOfPlayers < 1){ //can one player play?
+		cout << "invaild. exit"<< endl;
+		return;
 	}
 	
 	//Number of cards
 	cout << "How many cards?" << endl;
 	int cardsNumber = 0;
 	cin >> cardsNumber;
-	while (cardsNumber < 1){
-		cout << "invaild. try again"<< endl;
-		cin >> cardsNumber;
+	if (cardsNumber < 0){ //can start with 0 cards?
+		cout << "invaild. exit"<< endl;
+		return;
 	}
 	
 	//initialize the players
@@ -77,9 +77,9 @@ void Game::start(){
 			otherwise, nextPlayer = 1
 			*/
 			
-			//check if currentPlayer won
+			//check if currentPlayer wins
 			if(this->players[currentPlayer]->numberOfCards() == 0){
-				/*print who win..*/
+				/*print who won..*/
 				cout << this->players[currentPlayer]->getNameOfPlayer() << " wins!" <<endl;
 				gameEnd = true;
 				continue;
@@ -100,7 +100,6 @@ void Game::start(){
 		delete p;
 	}
 
-	
 	delete this->current;
 	
 	 	

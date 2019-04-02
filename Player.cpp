@@ -12,18 +12,18 @@ Player::Player(string name, int num_of_cards): name{name}, num_of_cards{num_of_c
 	}
 }
 
-Player::Player() :name{"ugly"}, num_of_cards{8}{
-	for(int i=0; i<this->num_of_cards; i++){
+Player::Player() :name{""}, num_of_cards{0}{
+	for(int i=0; i< this->num_of_cards; i++){
 		Card* c = new Card(Card::generate_card());
 		this->cards.push_back(c); 
 	}
 }
 
-Player::Player(Player &p){
+Player::Player( Player &p){
 	this->num_of_cards=p.num_of_cards;
 	this->name=p.name;
 	for(int i=0; i<p.num_of_cards; i++){
-	Card* c = new Card(*p.cards[i]);
+		Card* c = new Card(*p.cards[i]);
 		this->cards.push_back(c); 
 	}
 }
@@ -53,14 +53,14 @@ bool Player::play(Card& current){
 		if(current.is_legal(*choosen)){
 			flag = true;
 			replaceCard(current, chs -1);
+			return true;
 		}
 		else{
 			cout<< "You can't put "<< (*cards[chs -1]) << " on " << current << endl;
 		}
 	}
 	
-	
-	return true;
+	return false;
 }
 
 int Player::numberOfCards(){ 
@@ -78,6 +78,7 @@ void Player::replaceCard(Card &current ,int indx){
 	current=(*cards[indx]);
 	cards.erase(cards.begin()+indx);
 	delete tmp;
+	num_of_cards--;
 }
 
 std::string Player::getNameOfPlayer(){
