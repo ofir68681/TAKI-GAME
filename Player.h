@@ -11,12 +11,12 @@ private:
 	std::vector <Cards*> cards; // container of cards
 	// more private members
 	void takeCard(){};
-	Card replaceCard(Card current ,int indx){};// return the old card
+	void replaceCard(Card &current ,int indx){};
 
 public: 
 
 	Player(string name, int num_of_cards) : name{clr}, num_of_cards{num_of_cards}; //default construtor and init list constructor	
-	Player(Card c);// copy construtor
+	Player(Player p);// copy construtor
 	Player() :name{"ugly"}, num_of_cards{8}; //construtor and init list constructor
 
 
