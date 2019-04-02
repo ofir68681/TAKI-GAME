@@ -35,31 +35,31 @@ void Game::start(){
 		cout << "Player number " << (i+1) << " name?" << endl;
 		cin >> name;
 		//check if vaild
-		p = new Player(/*  player variables  */);
+		p = new Player(name, cardsNumber);
 		this-> players.push_back(p);
 	}
 
 	
 	this-> current = new Card(Card::generate_card());
-	int currentPlayer = 1; //index of current player in vector 'this->players'
+	int currentPlayer = 0; //index of current player in vector 'this->players'
 	int progress = 1; // -1/1, direction of the game turns
 	int nextPlayer = 1; // 0/1/2 where is thr next player from the current player
 	bool gameEnd = false;
 	bool playerPlay;
 	while(!gameEnd){
 		//print card, this->player[turnPlayer] name...
-		cout << "current: " << this->current << endl;
-		cout << this->players[currentPlayer]->getName() << " your turn-" << endl;
+		cout << "current: " << *this->current << endl;
+		cout << this->players[currentPlayer]->getNameOfPlayer() << ", your turn-" << endl;
 		
-		playerPlay = this->players[currentPlayer]->play(this->current);
+		playerPlay = this->players[currentPlayer]->play(*this->current);
 		
 		if (playerPlay){
-			switch(this->current.get_sign()){
+			switch(this->current->get_sign()){
 				case sign::PLUS:
 					nextPlayer = 0;
 					break;
 				case sign::STOP:
-					extPlayer = 2;
+					nextPlayer = 2;
 					break;
 				case sign::CD:
 					 progress = progress*-1;
@@ -80,11 +80,11 @@ void Game::start(){
 			//check if currentPlayer won
 			if(this->players[currentPlayer]->numberOfCards() == 0){
 				/*print who win..*/
-				cout << this->players[currentPlayer]->getName() << " wins!";
+				cout << this->players[currentPlayer]->getNameOfPlayer() << " wins!" <<endl;
 				gameEnd = true;
 				continue;
 			}
-		}	
+		}else nextPlayer = 1; 	
 		
 		//calculate next player index
 		currentPlayer += nextPlayer * progress;
@@ -94,13 +94,19 @@ void Game::start(){
 	}
 	
 	
-	for(int i=0; i<numberOfPlayers; i++)
-		free(this->players[i]);
+	for(int i=0; i<numberOfPlayers; i++){
+		Player* p = this->players[i];
+		players.erase(players.begin());
+		delete p;
+	}
+
 	
-	cout << "done";
+	delete this->current;
+	
 	 	
 }
 
-
-Game& operator=(const Game& other){/*private*/}
-Game(const Game &t){/*privte*/}
+Game::Game(){
+}
+Game& Game::operator=(const Game& other){/*private*/}
+Game::Game(const Game &t){/*privte*/}

@@ -8,7 +8,7 @@ class Game {
 private:
 	//private members and functions 
 	std::vector <Player*> players;
-	Card current;
+	Card* current;
 	Game& operator=(const Game& other); //copy cun'
 	Game(const Game &t); //Assignment operator
 	
@@ -16,6 +16,7 @@ private:
 public:
 	//public members and functions
 	void start();
+	Game();
 };
 #endif
 
