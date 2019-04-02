@@ -48,10 +48,28 @@ void Game::start(){
 	bool playerPlay;
 	while(!gameEnd){
 		//print card, this->player[turnPlayer] name...
+		cout << "current: " << this->current << endl;
+		cout << this->players[currentPlayer]->getName() << " your turn-" << endl;
 		
 		playerPlay = this->players[currentPlayer]->play(this->current);
 		
 		if (playerPlay){
+			switch(this->current.get_sign()){
+				case sign::PLUS:
+					nextPlayer = 0;
+					break;
+				case sign::STOP:
+					extPlayer = 2;
+					break;
+				case sign::CD:
+					 progress = progress*-1;
+					 nextPlayer = 1;
+					 break;
+				default:
+					nextPlayer = 1;
+					break;
+			}
+			
 			/*
 			if new card is -/+  -->   nextPlayer = 0
 			if new card is -><-  -->   progress = progress*-1, nextPlayer = 1
@@ -62,6 +80,7 @@ void Game::start(){
 			//check if currentPlayer won
 			if(this->players[currentPlayer]->numberOfCards() == 0){
 				/*print who win..*/
+				cout << this->players[currentPlayer]->getName() << " wins!";
 				gameEnd = true;
 				continue;
 			}
@@ -80,9 +99,11 @@ void Game::start(){
 	
 	
 	
-
-	
 	cout << "done";
 	 
 	
 }
+
+
+Game& operator=(const Game& other){/*private*/}
+Game(const Game &t){/*privte*/}
