@@ -41,5 +41,14 @@ int Player::numberOfCards(){
 	return 0;
 }
 
+void takeCard(){
+	Card::Card* c = new Card::Card(Card::generate_card());
+	this.cards.push_back(c); 
+}
 
-
+Card replaceCard(Card current ,int indx){
+	card temp=current;
+	current=cards[indx];
+	delete temp;
+	cards.earse(cards.begin()+indx);
+}

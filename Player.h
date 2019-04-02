@@ -10,6 +10,8 @@ private:
 	 int num_of_cards;
 	std::vector <Cards*> cards; // container of cards
 	// more private members
+	void takeCard(){};
+	Card replaceCard(Card current ,int indx){};// return the old card
 
 public: 
 
@@ -23,6 +25,8 @@ public:
 	
 	int numberOfCards();
 	//the function return the number of card he has.
+
+	string getNameOfPlayer(){return this.name};
 	
 };
 #endif
