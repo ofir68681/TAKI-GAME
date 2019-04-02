@@ -30,8 +30,30 @@ bool Player::play(Card& current){
 	for(int i=0; i<cards.size(); i++){
 		cout << "(" << i << ")" << (*cards[i])
 	}
+	cout << endl;
 	
 	
+	bool flag = false;
+	
+	
+	int chs;
+	while(!flag){
+		cin >>  chs;
+		
+		if(chs > this->cards.size() || chs <= 0){ //illegal input
+			pullOutACard();
+			return false;
+		}
+		
+		Card* choosen = cards[chs -1];
+		if(current.is_legal(*choosen)){
+			flag = true;
+			replace(current, i);
+		}
+		else{
+			cout<< "You can't put "<< (*cards[chs -1]) << " on " << current;
+		}
+	}
 	
 	
 	return true;

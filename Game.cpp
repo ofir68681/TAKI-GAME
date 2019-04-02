@@ -40,7 +40,7 @@ void Game::start(){
 	}
 
 	
-	this-> current = Card::generate_card();
+	this-> current = new Card(Card::generate_card());
 	int currentPlayer = 1; //index of current player in vector 'this->players'
 	int progress = 1; // -1/1, direction of the game turns
 	int nextPlayer = 1; // 0/1/2 where is thr next player from the current player
