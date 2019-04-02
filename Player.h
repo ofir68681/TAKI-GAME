@@ -12,9 +12,10 @@ private:
 	// more private members
 
 public: 
-	
-	Player(string name, int num_of_cards) : name{clr}, num_of_cards{num_of_cards}; //default construtor and init list constructor
-// 		this-> players.push_back(p);
+
+	Player(string name, int num_of_cards); //default construtor and init list constructor	
+	Player(Card c);// copy construtor
+	Player() : name{"ugly"} //construtor and init list constructor
 
 
 	bool play(Card& current);
