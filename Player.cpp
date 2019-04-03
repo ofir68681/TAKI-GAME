@@ -90,7 +90,7 @@ Player::~Player(){
 	}
 }
 
-Player::Player& operator=(const Player& other){
+Player& Player::operator=(const Player& p){
 	this->num_of_cards=p.num_of_cards;
 	this->name=p.name;
 	for(int i=0; i<p.num_of_cards; i++){

@@ -31,7 +31,7 @@ public:
 
 	std::string getNameOfPlayer();
 
-	Player& operator=(const Player& other); // Assignment operator
+	Player& operator=(const Player& p); // Assignment operator
 	
 };
 #endif
