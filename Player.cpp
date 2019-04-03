@@ -6,14 +6,14 @@
 
 using namespace std;
 
-Player::Player(string name, int num_of_cards): name{name}, num_of_cards{num_of_cards}{
+Player::Player(string name, int num_of_cards): name(name), num_of_cards(num_of_cards){
 	for(int i=0; i<this->num_of_cards; i++){
 		Card c(Card::generate_card());
 		this->cards.push_back(c); 
 	}
 }
 
-Player::Player() :name{""}, num_of_cards{0}{
+Player::Player() :name(""), num_of_cards(0){
 	for(int i=0; i< this->num_of_cards; i++){
 		Card c(Card::generate_card());
 		this->cards.push_back(c); 
@@ -31,7 +31,7 @@ Player::Player( Player &p){
 
 
 bool Player::play(Card& current){
-	cout << "your cards: ";
+	cout << "Your cards: ";
 	for(int i=0; i<cards.size(); i++){
 		cout << "(" << (i+1) << ")" << cards[i]<< " ";
 	}

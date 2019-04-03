@@ -35,7 +35,7 @@ void Game::start(){
 	string name;
 	Player* p;
 	for(int i = 0; i < numberOfPlayers; i++){
-		cout << "Player number " << (i+1) << " name?" << endl;
+		cout << "player number " << (i+1) << " name?" << endl;
 		cin >> name;
 		//check if vaild
 		p = new Player(name, cardsNumber);
@@ -52,7 +52,7 @@ void Game::start(){
 	while(!gameEnd){
 		//print card, this->player[turnPlayer] name...
 		cout << "current: " << *this->current << endl;
-		cout << this->players[currentPlayer]->getNameOfPlayer() << ", your turn-" << endl;
+		cout << this->players[currentPlayer]->getNameOfPlayer() << ", your turn -" << endl;
 		
 		playerPlay = this->players[currentPlayer]->play(*this->current);
 		
