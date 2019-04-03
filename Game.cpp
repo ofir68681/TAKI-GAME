@@ -92,20 +92,25 @@ void Game::start(){
 			currentPlayer += numberOfPlayers;
 		currentPlayer = currentPlayer % numberOfPlayers;
 	}
-	
-	
-	for(int i=0; i<numberOfPlayers; i++){
+	 	
+}
+
+Game::Game(){
+}
+
+
+Game::~Game(){
+int end=players.size();
+	 for (int i=0; i <end; i++) {
 		Player* p = this->players[i];
 		players.erase(players.begin());
 		delete p;
 	}
 
 	delete this->current;
-	
-	 	
+	//delete this;
+
 }
 
-Game::Game(){
-}
 Game& Game::operator=(const Game& other){/*private*/}
 Game::Game(const Game &t){/*privte*/}

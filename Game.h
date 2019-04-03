@@ -17,7 +17,9 @@ public:
 	//public members and functions
 	void start();
 	Game();
+	~Game();
 };
+
 #endif
 
 
