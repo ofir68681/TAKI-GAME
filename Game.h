@@ -9,8 +9,8 @@ private:
 	//private members and functions 
 	std::vector <Player*> players;
 	Card* current;
-	Game& operator=(const Game& other); //copy cun'
-	Game(const Game &t); //Assignment operator
+	Game& operator=(const Game& other); //Assignment operator
+	Game(const Game &t); //copy constructor
 	
 	
 public:

@@ -27,6 +27,8 @@ public:
 	//the function return the number of card he has.
 
 	std::string getNameOfPlayer();
+
+	Player& operator=(const Player& other); // Assignment operator
 	
 };
 #endif

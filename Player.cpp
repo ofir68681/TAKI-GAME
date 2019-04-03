@@ -89,4 +89,15 @@ Player::~Player(){
 	}
 }
 
+Player::Player& operator=(const Player& other){
+	this->num_of_cards=p.num_of_cards;
+	this->name=p.name;
+	for(int i=0; i<p.num_of_cards; i++){
+		Card c(Card::generate_card());
+		this->cards.push_back(c); 
+	}
+	
+}
+
+
 
