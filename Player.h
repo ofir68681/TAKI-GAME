@@ -8,7 +8,7 @@ class Player {
 private:
 	 std::string name;
 	 int num_of_cards;
-	std::vector <Card*> cards; // container of cards
+	std::vector <Card> cards; // container of cards
 	// more private members
 	void takeCard();
 	void replaceCard(Card &current ,int indx);

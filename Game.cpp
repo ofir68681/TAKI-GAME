@@ -102,7 +102,7 @@ Game::Game(){
 Game::~Game(){
 int end=players.size();
 	 for (int i=0; i <end; i++) {
-		Player* p = this->players[i];
+		Player* p = this->players[0];
 		players.erase(players.begin());
 		delete p;
 	}
