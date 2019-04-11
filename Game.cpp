@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-/* Ofir Katz 314962101*/
-/* Ben Horn 208569848*/
 
 using namespace std;
 
